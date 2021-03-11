@@ -41,14 +41,14 @@ public class Controller {
 	}
 	
 	public static void main(String[] args) {
-		/*if(args.length == 0) {
+		if(args.length == 0) {
 			System.out.println("You most specify the path of the image");
 			return;
-		}*/
+		}
 		
 		Window win = new Window();
 		Controller con = new Controller(win);
 		
-		con.setImage("/home/kevin/Pictures/wall.jpg");
+		con.setImage(args[0]);
 	}
 }
