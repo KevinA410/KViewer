@@ -1,2 +1,2 @@
 # KViewer
-Simple image viewer writed in Java
+A simple image viewer writed in Java
