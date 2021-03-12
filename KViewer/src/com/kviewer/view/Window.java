@@ -11,18 +11,18 @@ import javax.swing.JButton;
 import java.awt.FlowLayout;
 
 @SuppressWarnings("serial")
-public class Window extends JFrame{
+public class Window extends JFrame {
 	/**
 	 * Attributes
 	 */
 	private JPanel mainPanel = (JPanel) getContentPane();
 	private JPanel buttons;
-	
+
 	public static String title = "KViewer";
 	public JLabel canva;
 	public JButton left;
 	public JButton right;
-	
+
 	/**
 	 * Create the application.
 	 */
@@ -38,21 +38,21 @@ public class Window extends JFrame{
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("KViewer");
-		
+
 		buttons = new JPanel();
 		mainPanel.setLayout(new BorderLayout(0, 0));
 		buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		mainPanel.add(buttons, BorderLayout.SOUTH);
-		
+
 		canva = new JLabel("The image will load here...", SwingConstants.CENTER);
 		mainPanel.add(canva);
-		
+
 		left = new JButton("<");
 		buttons.add(left);
-		
+
 		right = new JButton(">");
 		buttons.add(right);
-		
+
 		try {
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException
