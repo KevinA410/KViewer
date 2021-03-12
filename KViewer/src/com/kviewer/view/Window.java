@@ -3,7 +3,6 @@ package com.kviewer.view;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,8 +18,7 @@ public class Window extends JFrame {
 	 * Attributes
 	 */
 	private JPanel mainPanel = (JPanel) getContentPane();
-	private JPanel buttons;
-
+	public JPanel buttons;
 	public static String title = "KViewer";
 	public JLabel canva;
 	public JButton left;
