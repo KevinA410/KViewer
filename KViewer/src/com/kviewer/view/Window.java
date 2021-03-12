@@ -1,14 +1,17 @@
 package com.kviewer.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.JButton;
-import java.awt.FlowLayout;
 
 @SuppressWarnings("serial")
 public class Window extends JFrame {
@@ -22,11 +25,13 @@ public class Window extends JFrame {
 	public JLabel canva;
 	public JButton left;
 	public JButton right;
+	private JLabel label;
 
 	/**
 	 * Create the application.
 	 */
 	public Window() {
+		getContentPane().setBackground(new Color(33, 33, 33));
 		initialize();
 	}
 
@@ -40,6 +45,7 @@ public class Window extends JFrame {
 		setTitle("KViewer");
 
 		buttons = new JPanel();
+		buttons.setBackground(new Color(33,33,33));
 		mainPanel.setLayout(new BorderLayout(0, 0));
 		buttons.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		mainPanel.add(buttons, BorderLayout.SOUTH);
@@ -47,10 +53,22 @@ public class Window extends JFrame {
 		canva = new JLabel("The image will load here...", SwingConstants.CENTER);
 		mainPanel.add(canva);
 
-		left = new JButton("<");
-		buttons.add(left);
+		left = new JButton("");
+		left.setBackground(null);
+		left.setBorder(null);
+		left.setRolloverEnabled(true);
 
-		right = new JButton(">");
+		left.setIcon(new ImageIcon(Window.class.getResource("/com/kviewer/icons/left.png")));
+		buttons.add(left);
+		
+		label = new JLabel("          ");
+		buttons.add(label);
+
+		right = new JButton("");
+		right.setBackground(null);
+		right.setBorder(null);
+		right.setRolloverEnabled(true);
+		right.setIcon(new ImageIcon(Window.class.getResource("/com/kviewer/icons/right.png")));
 		buttons.add(right);
 
 		try {
