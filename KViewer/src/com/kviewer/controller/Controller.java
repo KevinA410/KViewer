@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+
+import com.kviewer.view.Welcome;
 import com.kviewer.view.Window;
 
 public class Controller {
@@ -92,7 +94,8 @@ public class Controller {
 		 */
 		win.addComponentListener(new ComponentAdapter() {
 			public void componentResized(ComponentEvent e) {
-				setImage(root.getAbsolutePath() + "/" + images.get(index));
+				if(index != -1)
+					setImage(root.getAbsolutePath() + "/" + images.get(index));
 			}
 		});
 
@@ -180,7 +183,7 @@ public class Controller {
 
 		// If is the first time
 		if (Integer.parseInt(configs.get(0).split(": ")[1]) == 1) {
-			System.out.println("Is the first time");
+			isFirstExecution();
 		}
 
 		// Set the hiddenPanel setting
@@ -316,9 +319,6 @@ public class Controller {
 	 * @param path
 	 */
 	private void setImage(String path) {
-		if (index < 0)
-			return;
-
 		// Create an icon, scale the image and set on the label
 		ImageIcon icon = new ImageIcon(path);
 		Image scaled = icon.getImage().getScaledInstance(win.canva.getWidth(), win.canva.getHeight(),
@@ -362,7 +362,16 @@ public class Controller {
 	 * Coming soon
 	 */
 	private void isFirstExecution() {
-		//ToDo
+		Welcome welcome = new Welcome();
+		
+		welcome.setVisible(true);
+		
+		welcome.okButton.addActionListener(new ActionListener() {	
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				welcome.setVisible(false);
+			}
+		});
 	}
 
 	/**
@@ -371,7 +380,7 @@ public class Controller {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// If there's no an argument, close de application
+		// If there's no an argument, close the application
 		if (args.length == 0) {
 			JOptionPane.showMessageDialog(null, "You have to specify a path", "Error", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);

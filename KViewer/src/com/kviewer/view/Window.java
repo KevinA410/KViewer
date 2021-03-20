@@ -54,7 +54,7 @@ public class Window extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		setSize(450, 300);
+		setSize(650, 500);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setTitle("KViewer");
